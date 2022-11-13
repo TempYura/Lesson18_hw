@@ -25,7 +25,7 @@ class GenresView(Resource):
 
         genre = genre_service.create(req_json)
 
-        return genre, 201
+        return genre, 201,  {"location": f"/{genres_ns.name}/{genre['id']}"}
 
 
 @genres_ns.route("/<int:gid>")

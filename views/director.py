@@ -23,7 +23,7 @@ class DirectorsView(Resource):
 
         director = director_service.create(req_json)
 
-        return director, 201
+        return director, 201,  {"location": f"/{directors_ns.name}/{director['id']}"}
 
 
 @directors_ns.route("/<int:did>")
